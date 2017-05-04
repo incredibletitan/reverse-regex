@@ -1,5 +1,7 @@
 <?php
 
+namespace src\generators;
+
 /**
  * Class RandomCharacterGenerator
  *

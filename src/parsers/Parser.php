@@ -1,5 +1,12 @@
 <?php
 
+namespace src\parsers;
+
+use src\TokenIterator;
+use src\LexerAnalyzer;
+use src\generators\AsItLooksGenerator;
+use src\generators\RandomGenerator;
+
 /**
  * Class Parser
  *

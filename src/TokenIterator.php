@@ -1,11 +1,13 @@
 <?php
 
+namespace src;
+
 /**
  * Class TokenIterator
  *
  * @author Yuriy Stos
  */
-class TokenIterator implements Iterator
+class TokenIterator implements \Iterator
 {
     private $position = 0;
     private $tokens;
