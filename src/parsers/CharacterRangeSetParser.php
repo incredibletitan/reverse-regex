@@ -9,6 +9,8 @@ use src\generators\RandomCharacterSetGenerator;
 /**
  * Class CharacterRangeSetParser
  *
+ * Subparser for character range set
+ *
  * @author Yuriy Stos
  */
 class CharacterRangeSetParser
@@ -32,14 +34,14 @@ class CharacterRangeSetParser
 
         $iterator->next();
 
-        if ($iterator->nextItem()['type'] === LexerAnalyzer::T_QUANTIFIER_OPEN) {
+        if ($iterator->nextItem()['type'] === LexerAnalyzer::QUANTIFIER_OPEN) {
             $iterator->next();
             $iterator->next();
 
             $quantifierStartString = '';
             $quantifierEndString = '';
 
-            while ($iterator->current()['type'] !== LexerAnalyzer::T_QUANTIFIER_CLOSE
+            while ($iterator->current()['type'] !== LexerAnalyzer::QUANTIFIER_CLOSE
                 && $iterator->current()['value'] !== ','
             ) {
                 if (is_numeric($quantifierStart = $iterator->current()['value'])) {
@@ -51,7 +53,7 @@ class CharacterRangeSetParser
             if ($iterator->current()['value'] === ',') {
                 $iterator->next();
 
-                while ($iterator->current()['type'] !== LexerAnalyzer::T_QUANTIFIER_CLOSE) {
+                while ($iterator->current()['type'] !== LexerAnalyzer::QUANTIFIER_CLOSE) {
                     if (is_numeric($quantifierEnd = $iterator->current()['value'])) {
                         $quantifierEndString .= $quantifierEnd;
                     }

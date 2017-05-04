@@ -9,10 +9,14 @@ namespace src;
  */
 class RandomStringHelper
 {
-    /*
-     * Create a random string
-     * @param $length the length of the string to create
-     * @return $str the string
+    /**
+     * Generates random string by range
+     *
+     * @param $rangeStart
+     * @param $rangeEnd
+     * @param int $limitFrom
+     * @param int $limitTo
+     * @return string
      */
     public static function randomString($rangeStart, $rangeEnd, $limitFrom = 1, $limitTo = 0)
     {

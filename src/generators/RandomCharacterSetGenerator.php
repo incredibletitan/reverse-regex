@@ -7,13 +7,30 @@ use src\RandomStringHelper;
 /**
  * Class RandomCharacterSetGenerator
  *
+ * Class for generating range of random literals
+ *
  * @author Yuriy Stos
  */
 class RandomCharacterSetGenerator implements RandomGenerator
 {
+    /**
+     * @var string - Range start value
+     */
     private $rangeStart;
+
+    /**
+     * @var string - Range end value
+     */
     private $rangeEnd;
+
+    /**
+     * @var integer - Quantifier minimal count of literals
+     */
     private $quantifierStart;
+
+    /**
+     * @var integer - Quantifier maximum count of literals
+     */
     private $quantifierEnd;
 
     public function __construct($rangeStart, $rangeEnd, $quantifierStart = 1, $quantifierEnd = 1)
@@ -24,6 +41,13 @@ class RandomCharacterSetGenerator implements RandomGenerator
         $this->quantifierEnd = $quantifierEnd;
     }
 
+    /**
+     * @inheritdoc
+     *
+     * Generates random string by specified range and quantifiers
+     *
+     * E.g. [a-z]{5} - zsfrt;
+     */
     public function generate()
     {
         return RandomStringHelper::randomString(

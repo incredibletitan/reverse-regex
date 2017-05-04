@@ -3,12 +3,17 @@
 namespace src\generators;
 
 /**
- * Created by PhpStorm.
- * User: stosbsh
- * Date: 04.05.17
- * Time: 14:51
+ * Interface RandomGenerator
+ * @package src\generators
+ *
+ * Interface for random generating classes
  */
 interface RandomGenerator
 {
+    /**
+     * Generates random string
+     *
+     * @return mixed
+     */
     function generate();
 }

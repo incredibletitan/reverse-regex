@@ -21,7 +21,7 @@ class SetParser
     {
         $resultGenerator = new RandomCharacterGenerator();
 
-        while ($iterator->valid() && $iterator->current()['type'] !== LexerAnalyzer::T_SET_CLOSE) {
+        while ($iterator->valid() && $iterator->current()['type'] !== LexerAnalyzer::SET_CLOSE) {
             $resultGenerator->addItem($iterator->current()['value']);
             $iterator->next();
         }
