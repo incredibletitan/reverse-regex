@@ -10,7 +10,6 @@ class Parser
     private $bracketsOpened = false;
     private $generatorsList = [];
 
-
     public function parse(TokenIterator $iterator)
     {
         while ($iterator->valid()) {
@@ -20,9 +19,14 @@ class Parser
                 $generator->addItem($iterator->current()['value']);
                 $this->addItemToGeneratorList($generator);
             } elseif ($iterator->current()['type'] === LexerAnalyzer::T_SET_OPEN) {
+                $iterator->next();
 
+                if ($iterator->nextItem()['type'] === LexerAnalyzer::T_SET_RANGE) {
+                    $this->addItemToGeneratorList((new CharacterRangeSetParser())->parse($iterator));
+                } else {
+                    $this->addItemToGeneratorList((new SetParser())->parse($iterator));
+                }
             }
-
             $iterator->next();
         }
     }
